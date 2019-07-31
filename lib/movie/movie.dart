@@ -5,12 +5,12 @@ class MovieResponse {
   List<Movie> _results = [];
 
   MovieResponse.fromJson(Map<String, dynamic> parsedJson) {
-    print(parsedJson['result'].length);
+    print(parsedJson['results'].length);
     _page = parsedJson['page'];
     _total_results = parsedJson['total_results'];
     _total_pages = parsedJson['total_pages'];
     List<Movie> temp = [];
-      for (int i = 0; i< parsedJson['result'].length; i++) {
+      for (int i = 0; i< parsedJson['results'].length; i++) {
         Movie result = Movie(parsedJson['results'][i]);
         temp.add(result);
       }
@@ -68,7 +68,7 @@ class Movie {
   String get poster_path => _poster_path;
   double get popularity => _popularity;
   String get title => _title;
-  get vote_average => _vote_average;
+  double get vote_average => _vote_average;
   bool get video => _video;
   int get id => _id;
   int get vote_count => _vote_count;
