@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'enum.dart';
+import 'package:flutter_app/movie/movie_tab_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -24,20 +26,29 @@ class _HomeScreenState extends State<HomeScreen> {
       child: ListView(
         padding: EdgeInsets.all(0),
         children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountEmail: Text(
-              "Movie App",
-              style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold
+          DrawerHeader(
+              child: new Container(
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    new Image.asset('images/logo.jpg',
+                      width: 70.0,
+                      height: 70.0,
+                      fit: BoxFit.cover,
+                    ),
+                    new Text('The Movie App',
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.black,
-              child: Text(
-                "T",
-                style: TextStyle(fontSize: 35.0),
-              ),
+            decoration: new BoxDecoration(
+              color: Colors.black45
             ),
           ),
           ListTile(
@@ -145,11 +156,56 @@ class MovieTab extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Tab> tabs = new List();
 
-    tabs.add(Tab(text: "NEW",));
     tabs.add(Tab(text: "POPULAR",));
-    tabs.add(Tab(text: "UPCOMING",));
     tabs.add(Tab(text: "TOP RATED",));
-    tabs.add(Tab(text: "MOVIE BY YEARS",));
+    tabs.add(Tab(text: "UPCOMING",));
+    tabs.add(Tab(text: "NOW PLAYING",));
+
+    final TabBar tabBar = new TabBar(
+      isScrollable: true,
+      indicatorColor: Colors.white,
+      labelColor: Colors.white70,
+      unselectedLabelColor: Colors.white,
+      tabs: tabs,
+      indicatorSize: TabBarIndicatorSize.tab,
+    );
+
+    final TabBarView tabBarView = new TabBarView(
+      children: <Widget>[
+        new MovieTabScreen(movieApiType: MovieApiType.POPULAR),
+        new MovieTabScreen(movieApiType: MovieApiType.TOP_RATED),
+        new MovieTabScreen(movieApiType: MovieApiType.UPCOMING),
+        new MovieTabScreen(movieApiType: MovieApiType.NOW_PLAYING),
+      ],
+    );
+
+    return DefaultTabController(
+      length: tabs.length,
+      child: Scaffold(
+        appBar: new PreferredSize(
+            child: Container(
+              color: Colors.black,
+              height: 50.0,
+              child: tabBar,
+            ),
+            preferredSize: Size.fromHeight(50)
+        ),
+        body: tabBarView,
+      ),
+    );
+  }
+}
+
+class TVShowTab extends StatelessWidget {
+  const TVShowTab({Key key}) : super(key:key);
+  @override
+  Widget build(BuildContext context) {
+    List<Tab> tabs = new List();
+
+    tabs.add(Tab(text: "POPULAR",));
+    tabs.add(Tab(text: "TOP RATED",));
+    tabs.add(Tab(text: "ON TV",));
+    tabs.add(Tab(text: "AIRING TODAY",));
 
     final TabBar tabBar = new TabBar(
       isScrollable: true,
@@ -181,20 +237,9 @@ class MovieTab extends StatelessWidget {
   }
 }
 
-class TVShowTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 class ActorTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();
   }
 }
-
-
-
-

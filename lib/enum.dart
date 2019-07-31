@@ -9,8 +9,7 @@ enum MovieApiType {
   NOW_PLAYING,
   POPULAR,
   UPCOMING,
-  TOP_RATED,
-  MOVIE_BY_YEAR
+  TOP_RATED
 }
 
 enum TvShowApiType {
