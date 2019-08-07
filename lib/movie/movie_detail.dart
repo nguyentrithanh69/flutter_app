@@ -7,6 +7,7 @@ import 'package:flutter_app/movie/movie_image_screen.dart';
 import 'package:flutter_app/app_constant.dart';
 
 
+// ignore: must_be_immutable
 class MovieDetail extends StatefulWidget {
   Movie _movie;
 

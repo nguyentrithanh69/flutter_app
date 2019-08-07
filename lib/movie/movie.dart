@@ -37,7 +37,6 @@ class Movie {
   double _popularity;
   int _vote_count;
   bool _video;
-  double _vote_average;
 
   Movie(result) {
     _poster_path = result['poster_path'];
@@ -55,7 +54,6 @@ class Movie {
     _popularity = result['popularity'];
     _vote_count = result['vote_count'];
     _video = result['video'];
-    _vote_average = result['vote_average'];
   }
 
   String get release_date => _release_date;
@@ -68,10 +66,8 @@ class Movie {
   String get poster_path => _poster_path;
   double get popularity => _popularity;
   String get title => _title;
-  double get vote_average => _vote_average;
   bool get video => _video;
   int get id => _id;
-  int get vote_count => _vote_count;
 }
 
 class MovieImageResponse {
