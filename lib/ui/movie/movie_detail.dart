@@ -26,7 +26,7 @@ class _MovieDetailState extends State<MovieDetail> {
   Widget build(BuildContext context) {
     final AppBar appBar = new AppBar(
       title: Text(_movie.title),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.black,
       actions: <Widget>[
         Padding(
           padding: EdgeInsets.all(10),

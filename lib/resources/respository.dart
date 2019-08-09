@@ -1,7 +1,9 @@
 import 'package:flutter_app/model/movie.dart';
 import 'package:flutter_app/resources/movie/movie_api_provider.dart';
 import 'package:flutter_app/resources/tv/tv_api_provider.dart';
+import 'package:flutter_app/resources/actor/actor_api_provider.dart';
 import 'package:flutter_app/model/tv.dart';
+import 'package:flutter_app/model/actor.dart';
 
 class Respository {
   MovieApiProvider movieApiProvider = new MovieApiProvider();
@@ -21,6 +23,9 @@ class Respository {
   Future<TvResponse> fetchTvListAiringToday() => tvApiProvider.fetchTvListAiringToday();
 
   Future<TvImageResponse> fetchTvImageList(int tvId) => tvApiProvider.fetchMovieImageList(tvId);
+
+  ActorApiProvider actorApiProvider = new ActorApiProvider();
+  Future<ActorResponse> fetchActorPopular() => actorApiProvider.fetchActorPopular();
 
 
 

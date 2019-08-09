@@ -26,7 +26,7 @@ class _TvDetailState extends State<TvDetail> {
   Widget build(BuildContext context) {
     final AppBar appBar = new AppBar(
       title: Text(_tv.name),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.black,
       actions: <Widget>[
         Padding(
           padding: EdgeInsets.all(10),

@@ -9,7 +9,8 @@ import 'package:flutter_app/ui/image_network.dart';
 import 'package:flutter_app/ui/tv/tv_detail.dart';
 
 
-// ignore: must_be_immutable
+// ignore: must_be_immu
+// table
 class TvTabScreen extends StatelessWidget {
   TvApiType tvApiType;
 
